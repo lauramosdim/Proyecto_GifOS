@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta chartset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GifOS_LauraRamos</title>
+    <link rel="stylesheet" href="./styles/normalize.css">   
+   
+    <link rel="stylesheet" href="./styles/saylor_day.css">  
+   
+    <link rel="stylesheet" href="./styles/saylor_night.css"> 
+     
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <div class="counter">
+            <p>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</p>
+        </div>
+    </header>
+
+    <main>
+
+        <nav>
+            <div class="logo">
+                <img src="./images/gifOF_logo.png" alt="Logo_gifOS" class="logo-day" />
+                <img src="./images/gifOF_logo_dark.png" alt="Logo_gifOS" class="logo-night" />
+            </div>
+            <div class="menu">
+                <button class="button-nav" id="create"><span><a class="create" href="./pre-captura1.html">Crear Guifos</a></span></button>
+                <button class="button-nav" id="choose"><span>Elegir Tema</span></button>
+                <button class="dropdown" id="toggle"><span><img class="flecha-drop" src="./images/dropdown.svg"
+                            alt="Dropdown Arrow"></span></button>
+                <div class="menu-theme">
+                    <ul class="styles">
+                        <li>
+                            <button class="day">Sailor Day</button>
+                        </li>
+                        <li>
+                            <button class="night">Sailor Night</button>
+                        </li>
+                    </ul>
+
+                </div>
+                <a href="./galeria.html"><span class="my-gifs"><span class="m">M</span>is Guifos</span></a>
+            </div>
+        </nav>
+        <section class="intro">
+            <div class="search">
+                <div class="search-box">
+                    <p class="search-text">Buscar</p>
+                    <div class="searcher">
+                        <input id="searcher-input" type="text" name="searchBar" placeholder="Busca gifs,hashtags,temas,busca lo que quieras..." class="searcher-input"></input>
+
+                        <div>
+                            <button class="search-button" id="search-bttn"><span class="lupa"><img src="./images/lupa_inactive.svg" alt="lupa"
+                                    >Buscar</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="suggestions-bar">
+                    <div class="suggestions-list">
+                        <button class="suggestion-button" id="sugeridoButton"><span>Coronavirus</span></button>
+                        <button class="suggestion-button" id="similarButton"><span>Travel</span></button>
+                        <button class="suggestion-button" id="otherButton"><span>Work From Home</span></button>
+                    </div>
+                </div>
+            </div>
+
+        </section class="suggestions">
+       
+            <p class="suggestions-input">Hoy te sugerimos:</p>
+        
+        <div class="suggested-gifs">
+            <!-- <div class="gif1">
+                <div class="gif-tittle">
+                    <p>#Coronavirus</p><img src="./images/close.svg" alt="x">
+                </div>
+                <img id="gif1" src="https://media0.giphy.com/media/jAYUbVXgESSti/giphy.gif" alt="Gif cargando">
+                <button class="verMas_button" id="sugerencia1"><span>Ver más</span></button>
+            </div>
+            <div class="gif2">
+                <div class="gif-tittle">
+                    <p>#Coronavirus</p><img src="./images/close.svg" alt="x">
+                </div>
+                <img id="gif2" src="https://media0.giphy.com/media/jAYUbVXgESSti/giphy.gif" alt="Gif cargando">
+                <button class="verMas_button" id="sugerencia1"><span>Ver más</span></button>
+            </div>
+            <div class="gif3">
+                <div class="gif-tittle">
+                    <p>#Coronavirus</p><img src="./images/close.svg" alt="x">
+                </div>
+                <img id="gif3" src="https://media0.giphy.com/media/jAYUbVXgESSti/giphy.gif" alt="Gif cargando">
+                <button class="verMas_button" id="sugerencia1"><span>Ver más</span></button>
+            </div>
+            <div class="gif4">
+                <div class="gif-tittle">
+                    <p>#Coronavirus</p><img src="./images/close.svg" alt="x">
+                </div>
+                <img id="gif4" src="https://media0.giphy.com/media/jAYUbVXgESSti/giphy.gif" alt="Gif cargando">
+                <button class="verMas_button" id="sugerencia1"><span>Ver más</span></button>
+            </div> -->
+        </div>
+        <section>
+            <p class="suggestions-input">Tendencias:</p>
+            <div class="trendsContainer">
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="./js/API.js"></script>
+    <script src="./js/UI.js"></script>
+    <script src="./js/app.js"></script>
+   
+</body>
+
+</html>

@@ -1,0 +1,335 @@
+* body {
+  background-color: #110038;
+  font-family: "Chakra Petch", sans-serif;
+}
+* main {
+  margin-left: 100px;
+  margin-right: 140px;
+}
+.search-text,
+.counter,
+.gif-tittle {
+  background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+}
+
+.counter {
+  box-shadow: 0 1px 0 0 #110038;
+  font-size: 12px;
+  color: #ffffff;
+  padding-top: 3px;
+  padding-bottom: 4px;
+  padding-left: 7px;
+  margin-bottom: 35px;
+}
+
+/* nav bar beggining */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 44px;
+}
+
+.logo {
+  width: 59px;
+  height: 91px;
+}
+.logo-day {
+  visibility: hidden;
+}
+
+/* buttons navigation bar */
+.button-nav {
+  background: #ee3efe;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+  font-family: "Chakra Petch", sans-serif;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 18px;
+  width: 144px;
+  height: 36px;
+  margin-right: 8px;
+}
+.create {
+  text-decoration: none;
+  color: #ffffff;
+}
+.dropdown {
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  margin-left: -22px;
+  background: #ee3efe;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+}
+
+.button-nav:hover,
+.dropdown:hover {
+  background: #ce36db;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+  outline-style: dotted #110038;
+  outline-width: 1px;
+  outline-offset: -4px;
+  outline-color: #110038;
+}
+
+.button-nav:active,
+.dropdown:active {
+  background: #ce36db;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+  outline-style: dotted;
+  outline-width: 1px;
+  outline-offset: -4px;
+}
+.menu-theme {
+  background: #b4b4b4;
+  box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+  height: 102px;
+  width: 168px;
+  margin-left: 157px;
+  justify-content: space-around;
+  display: none;
+  position: absolute;
+
+  /* margin-top:0px;
+flex-direction: column;
+max-height: 0;
+transition: max-height .4s ease-out;
+-webkit-transition: max-height .4s ease-out;
+-moz-transition: max-height .4s ease-out;
+-ms-transition: max-height .4s ease-out;
+-o-transition: max-height .4s ease-out;
+cursor: pointer; */
+}
+.menu-theme li {
+  width: 150px;
+  height: 36px;
+  margin-top: 7px;
+}
+
+.menu-theme ul {
+  list-style-type: none;
+  margin: 4%;
+}
+
+.day {
+  background: #cccccc;
+  border: 1px solid #808080;
+  box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+  width: 150px;
+  height: 36px;
+  margin: 1.5%;
+  margin-top: 3%;
+  cursor: pointer;
+}
+
+.night::first-letter {
+  border-bottom: 1px solid #ffffff;
+}
+
+.night {
+  background: #2e32fb;
+  border: 1px solid rgba(51, 53, 143, 0.2);
+  box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: 22px;
+  width: 150px;
+  height: 36px;
+  margin: 1.5%;
+  margin-top: 3%;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+  margin-left: 6.5px;
+}
+
+.m {
+  border-bottom: 1px solid #ffffff;
+}
+
+.my-gifs {
+  padding: 10px;
+  color: #ffffff;
+}
+.my-gifs:hover {
+  border: 1px dashed #ffffff;
+}
+
+.my-gifs:active {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+}
+/* end buttons*/
+/* .menu-theme ul {
+	opacity: 0;
+	transition: opacity .6s;
+	-webkit-transition: opacity .6s;
+	-moz-transition: opacity .5s;
+	-ms-transition: opacity .5s;
+	-o-transition: opacity .5s;
+	padding-top: 16px;
+	padding-left: 16px;
+} */
+
+/* end nav bar */
+
+/* beggining searching bar */
+.intro {
+  display: flex;
+  flex-direction: column;
+}
+.search-text {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0;
+  font-weight: 700;
+  overflow: hidden;
+  height: 30%;
+  width: 99.7%;
+  box-shadow: inset 2px 2px 0 0 #ffffff;
+  padding: 0.5%;
+}
+
+.search-box {
+  /* margin: 39px, 268px, 12px, 15px; */
+  background: #b4b4b4;
+  box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+  height: 6em;
+}
+.searcher-input {
+  width: 87%;
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid #979797;
+  box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+
+  padding: 1%;
+  margin: 0.6%;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+  font-family: "Chakra Petch", sans-serif;
+}
+.searcher {
+  height: 60%;
+  padding: 0.9%;
+  display: flex;
+}
+
+/* .search_button{
+    background: #F7C9F3;
+border: 1px solid #110038;
+box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+height: 80%;
+
+} */
+
+.search-button {
+  background: #b4b4b4;
+  border: 1px solid #808080;
+  box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+  height: 80%;
+  margin-top: 11%;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+  color: #8f8f8f;
+  letter-spacing: 0;
+  line-height: 18px;
+  width: 6rem;
+  padding: 6%;
+}
+.lupa {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* .search_button:hover{
+    background: #dbdbdb;
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-offset: -4px;
+} */
+/* No funciona */
+
+.searcher-input:not(:placeholder-shown) + .search-button {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+
+.searcher-input:not(:placeholder-shown) + .search-button:active {
+  background: #e6bbe2;
+  outline-style: dotted;
+  outline-width: 1px;
+  outline-offset: -4px;
+}
+
+.suggestions-list {
+  display: flex;
+  background: #b4b4b4;
+  box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+  height: 120px;
+  justify-content: space-around;
+  /* display: none; */
+  flex-direction: column;
+  /* position: absolute; */
+}
+/* Fin barra buscadora */
+
+.suggestion-button {
+  background: #cccccc;
+  border: 1px solid #808080;
+  box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+  font-family: "Chakra Petch", sans-serif;
+  width: 85.5%;
+  margin-left: 1.4%;
+  height: 25%;
+  text-align: left;
+  padding-left: 3%;
+}
+
+.suggestion-button:hover {
+  outline-style: dotted;
+  outline-width: 1px;
+  outline-offset: -4px;
+  background: #cccccc;
+}
+
+/* termina búsquedas */
+
+.suggestions-input {
+  background: #fffafe;
+  border: 1px solid #2e32fb;
+  box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #110038;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 14px;
+  color: #110038;
+  letter-spacing: 0;
+  height: 2rem;
+  padding: 0.4rem;
+  margin-bottom: 3%;
+}
