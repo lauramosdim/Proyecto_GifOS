@@ -3,9 +3,14 @@ class UI {
     var gifsResultados = document.querySelector(".suggested-gifs");
     for (var i = 0; i < 4; i++) {
       console.log(gif[i].images.original.url);
-      gifsResultados.innerHTML += `<div><div class="header">#${gif[i].title
+      gifsResultados.innerHTML += `<div class="suggested-container"><div class="header-gif">#${gif[
+        i
+      ].title
         .substring(0, gif[i].title.indexOf("GIF"))
-        .replace(/ /g, "")}</div><img src="${
+        .replace(
+          / /g,
+          ""
+        )} <img class="close-mark" src="./images/close.svg"> </div><img class ="suggested-gif" src="${
         gif[i].images.original.url
       }" alt="${
         gif[i].title
