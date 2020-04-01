@@ -42,11 +42,21 @@ let gif = new GiphyAPI();
 let ui = new UI();
 
 function GetGifs() {
-  let serverResponse = gif.GetGiphy();
+  let serverResponse = gif.GetGiphy(4);
   //console.log("server response"+serverResponse);
   serverResponse.then(gifsEntrantes => {
     console.log("gif entrantes" + gifsEntrantes.gif.data);
     ui.displaySuggestions(gifsEntrantes.gif.data);
+    //console.log
+  });
+}
+
+function GetTrends() {
+  let serverResponse = gif.GetGiphy(24);
+  //console.log("server response"+serverResponse);
+  serverResponse.then(gifsEntrantes => {
+    console.log("gif entrantes" + gifsEntrantes.gif.data);
+    ui.displayTrends(gifsEntrantes.gif.data);
     //console.log
   });
 }
@@ -62,5 +72,6 @@ function BuscarGif(palabraBusqueda) {
 }
 
 GetGifs();
+GetTrends();
 
 // GetGiphy lee el end point y trae la respuesta que es una promesa
