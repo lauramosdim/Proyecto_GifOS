@@ -323,12 +323,11 @@ height: 80%;
 }
 .suggested-gifs {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   background-color: #fff4fd;
   grid-column-gap: 2%;
   grid-template-rows: 10rem;
   width: 100%;
-
   margin-bottom: 3%;
 }
 
@@ -339,7 +338,8 @@ height: 80%;
   position: relative;
 }
 
-.suggested-gif {
+.suggested-gif,
+.trend-gif {
   width: 100%;
   max-height: 85%;
   min-height: 85%;
@@ -400,4 +400,16 @@ height: 80%;
 
 span .verMas_button {
   max-width: 100%;
+}
+
+.trends-gifs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #fff4fd;
+  grid-column-gap: 2%;
+  grid-row-gap: 2%;
+  grid-template-rows: repeat(5, 11rem);
+  width: 100%;
+
+  margin-bottom: 3%;
 }

@@ -20,15 +20,16 @@ class UI {
   }
 
   displayTrends(gif) {
-    var resultadosTrends = document.querySelector(".trends-container");
+    var resultadosTrends = document.querySelector(".trends-gifs");
     console.log(resultadosTrends + "RESULTADOTRENDS");
     for (var i = 4; i < 24; i++) {
       console.log(gif[i].images.original.url);
-      resultadosTrends.innerHTML += `<div class="trends-container"></div><img class ="trend-gif" src="${
+      resultadosTrends.innerHTML += `<div class="trendy-container"><img class ="trend-gif" src="${
         gif[i].images.original.url
-      }" alt="${gif[i].title}" ><div class="header-gif">#${gif[i].title
-        .substring(0, gif[i].title.indexOf("GIF"))
-        .replace(/ /g, "")}</div>`;
+      }" alt="${gif[i].title}" ><div class="footer-gif">${gif[i].title
+        .substring(0, gif[i].title.indexOf(" GIF"))
+        .replace(/^/g, "#")
+        .replace(/ /g, "#")}</div></div>`;
     }
     console.log(gif);
   }
