@@ -276,11 +276,11 @@ height: 80%;
 .suggestions-list {
   display: flex;
   background: #e6e6e6;
-  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
-  height: 120px;
+  box-shadow: 0px;
   justify-content: space-around;
-  /* display: none; */
+  visibility: hidden;
   flex-direction: column;
+  height: 80px;
   /* position: absolute; */
 }
 /* Fin barra buscadora */

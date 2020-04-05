@@ -53,3 +53,36 @@ class UI {
   }
 }
 // // console.log(gif);
+function desplegarLista(e) {
+  let elemento = e.target;
+  if (elemento.classList.contains("isActive")) {
+    elemento.classList.remove("isActive");
+    menuhamburguesa.style.display = "none";
+  } else {
+    elemento.classList.add("isActive");
+    menuhamburguesa.style.display = "block";
+  }
+  // menuhamburguesa.style.display="block"
+
+  //menuhamburguesa.style.display="none"
+}
+
+const input = document.querySelector("#searcher-input");
+const log = document.querySelector(".suggestions-list");
+const margin = document.querySelector(".search-box");
+const topmargin = document.querySelector(".suggestions-input");
+
+input.addEventListener("input", desplegarSuggestions);
+input.addEventListener("input", desplegarSuggestions);
+
+function desplegarSuggestions(e) {
+  if (input.value.length > 0) {
+    log.style.visibility = "visible";
+    margin.style.margin = "0px";
+    log.style.height = "120px";
+  } else {
+    log.style.visibility = "hidden";
+    log.style.height = "0px";
+    margin.style.marginBottom = "80px";
+  }
+}
