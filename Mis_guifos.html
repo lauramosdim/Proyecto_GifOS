@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Captura de video por camara</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/773477662d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js"></script>
+    <link rel="stylesheet" href="./styles/mis_guifos.css" />
+  </head>
+
+  <body>
+    <div class="gradient">
+      <p>
+        ¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número
+        de visitas: <b id="visitas">12.765.804</b>
+      </p>
+    </div>
+    <div class="header">
+      <div class="volverAPrincipal">
+        <a href="index.html"
+          ><img
+            src="./assets/arrow.svg"
+            alt="flecha de retorno a página principal"
+        /></a>
+        <img src="./assets/gifOF_logo.png" alt="logo" id="logoDia" />
+      </div>
+   
+    <div class="instrucciones" id="instrucciones">
+      <div class="gradient">
+        <p>Crear Guifos</p>
+      </div>
+      <img
+        src="assets/window_img.png"
+        alt="icono de ventana de windows"
+        class="ventanita"
+      />
+      <div class="texto">
+        <h4>Aquí podrás crear tus propios guifos</h4>
+        <p>
+          Crear tu guifo es muy fácil, graba cualquier imagen con tu cámara y
+          obtén guifos personalizados. Los pasos para crear tu guifo son:
+        </p>
+        <p>1) Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</p>
+        <p>2) Capturar tu momento guifo</p>
+        <p>3) Revisar el momento</p>
+        <p>4) Listo para subir y compartir!</p>
+        <p>¿Quieres comenzar a crear tu guifo ahora?</p>
+      </div>
+      <div class="botonesComienzo">
+        <div class="boton cancelar">
+          <a class="anchorCancelar" href="./index.html">Cancelar</a>
+        </div>
+        <button class="boton" id="btnComenzar">Comenzar</button>
+      </div>
+    </div>
+    <div class="cuadrosVideo" id="cuadrosVideo">
+      <div class="verPorCamara">
+        <div class="gradient">
+          <p>Así se ve desde tu cámara</p>
+        </div>
+        <div class="cuadroCamara"><video id="cuadroVideo"></video></div>
+        <div class="botonesCuadroVideo">
+          <button class="boton" id="btnStart">Mostrar imagen</button>
+          <button class="boton" id="btnStop" disabled>Detener imagen</button>
+        </div>
+      </div>
+      <div class="verPorCamaraBotones">
+        <div class="botonesCuadroVideo">
+          <div class="botonComenzarGrabacion">
+            <button class="boton" id="btnStartRecord">
+              <img
+                src="./assets/camera.svg"
+                alt="camara para empezar a grabar"
+              />
+            </button>
+
+            <button class="boton" id="btnStartRecord2">Empezar a grabar</button>
+          </div>
+          <div class="timer">
+            <div class="timerNumeros">
+              <p>00 :</p>
+              <p id="segundos">00</p>
+              <p>:</p>
+              <p id="centiSegundos">00</p>
+            </div>
+          </div>
+          <div class="botonDetenerGrabacion">
+            <button class="boton" id="btnStopRecord">
+              <img
+                src="./assets/recording.svg"
+                alt="boton para detener la grabación"
+              />
+            </button>
+
+            <button class="boton" id="btnStopRecord2" disabled>
+              Detener grabación
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="verPorCamara">
+        <div class="gradient">
+          <p>Así quedó tu Guifo</p>
+        </div>
+        <img
+          class="cuadroCamara"
+          id="cuadroParaGif"
+          alt="gif de niño esperando"
+          src="https://media3.giphy.com/media/tXL4FHPSnVJ0A/giphy.gif?cid=52afa79ab147023095d0fca2eeec439b59d4a6673eab7fd5&rid=giphy.gif"
+        />
+        <div class="botonesCuadroVideo">
+          <button class="boton" id="btnUploadGif">Subir Guifo</button>
+        </div>
+      </div>
+    </div>
+    <div class="subiendo" id="subiendo">
+      <div class="gradient">
+        <p>Subiendo Guifo</p>
+      </div>
+      <div class="subiendoInfo">
+        <img
+          src="assets/globe_img.png"
+          alt="icono de globo terráqueo"
+          class="subiendoInfoGlobo"
+        />
+        <h4>Estamos subiendo tu guifo...</h4>
+      </div>
+      <div class="botonesComienzo">
+        <div class="boton cancelar">
+          <a class="anchorCancelar" href="./mis_gifos.html">Cancelar</a>
+        </div>
+      </div>
+    </div>
+    <div class="exito" id="exito">
+      <div class="gradient">
+        <p>Guifo subido con éxito</p>
+      </div>
+      <div class="exitoContenido">
+        <img
+          class="cuadroCamara"
+          id="cuadroParaGifExito"
+          alt="gif de niño esperando"
+          src="https://media3.giphy.com/media/tXL4FHPSnVJ0A/giphy.gif?cid=52afa79ab147023095d0fca2eeec439b59d4a6673eab7fd5&amp;rid=giphy.gif"
+        />
+        <div class="exitoContenidoBotones">
+          <h4>Guifo creado con éxito</h4>
+          <button class="boton" disabled id="btnCopiarEnlace">
+            Descargar Guifo
+          </button>
+          <button class="boton" disabled id="btnDescargarGuifo">
+            Copiar Enlace Guifo
+          </button>
+        </div>
+      </div>
+      <div class="enlace" id="enlace">
+        https://media1.giphy.com/media/VDXi3hl4NvBpi48xBW/giphy.gif?cid=52afa79a31b48e99d4268c4cc71df9dcbf8f8b3c9db10a07&rid=giphy.gif
+      </div>
+      <div class="boton exitoBotonListo">
+        <a class="anchorCancelar" href="./mis_gifos.html">Listo</a>
+      </div>
+    </div>
+    <div class="sugerencias">
+      <div class="input">Mis Guifos</div>
+      <div id="cuadros" class="cuadros"></div>
+    </div>
+    <p class="validator">
+      <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img
+          style="border:0;width:88px;height:31px"
+          src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+          alt="¡CSS Válido!"
+        />
+      </a>
+    </p>
+
+    <script src="./mis_gifos.js"></script>
+  </body>
+</html>
