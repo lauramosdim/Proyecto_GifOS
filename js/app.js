@@ -1,15 +1,13 @@
-///////////////variables que me traen elementos del dom
-let menuhamburguesa = document.querySelector(".menu-theme"),
-  botonDropdown = document.querySelector("#toggle"),
-  inputBuscar = document.querySelector("#searcher-input"),
+///////////////variables que me traen elementos del dom//
+let inputBuscar = document.querySelector("#searcher-input"),
   botonBuscar = document.querySelector("#search-bttn"),
   searchTrends = document.querySelector("#trends-p");
 
 console.log(botonBuscar);
 //////////////event listeners////////////
 
-botonDropdown.addEventListener("click", desplegarLista);
 botonBuscar.addEventListener("click", traerPalabraBusqueda);
+input.addEventListener("input", desplegarSuggestions);
 
 // let botonNight=document.querySelector(".night");
 // botonNight.addEventListener("click",cambiarColor);
@@ -33,7 +31,7 @@ let ui = new UI();
 function GetGifs() {
   let serverResponse = gif.GetGiphy(4);
   //console.log("server response"+serverResponse);
-  serverResponse.then(gifsEntrantes => {
+  serverResponse.then((gifsEntrantes) => {
     // console.log("gif entrantes" + gifsEntrantes.gif.data);
     ui.displaySuggestions(gifsEntrantes.gif.data);
     //console.log
@@ -43,7 +41,7 @@ function GetGifs() {
 function GetTrends() {
   let serverResponse = gif.GetGiphy(24);
   //console.log("server response"+serverResponse);
-  serverResponse.then(gifsEntrantes => {
+  serverResponse.then((gifsEntrantes) => {
     // console.log("gif entrantes" + gifsEntrantes.gif.data);
     ui.displayTrends(gifsEntrantes.gif.data);
     //console.log
@@ -54,7 +52,7 @@ function BuscarGif(palabraBusqueda) {
   searchTrends.innerText = `${palabraBusqueda}(resultados)`;
   let serverResponse = gif.BuscarGifs(palabraBusqueda);
   //console.log("server response"+serverResponse);
-  serverResponse.then(gifsEntrantes => {
+  serverResponse.then((gifsEntrantes) => {
     ui.displaySearch(gifsEntrantes.gif.data);
     //console.log
   });

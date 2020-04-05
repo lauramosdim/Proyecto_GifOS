@@ -53,8 +53,22 @@ class UI {
   }
 }
 // // console.log(gif);
+
+let input = document.querySelector("#searcher-input"),
+  log = document.querySelector(".suggestions-list"),
+  margin = document.querySelector(".search-box"),
+  topmargin = document.querySelector(".suggestions-input"),
+  search = document.querySelector(".suggestion-button"),
+  botonDropdown = document.querySelector("#toggle"),
+  lupa = document.querySelector(".lupa"),
+  styles = document.getElementById("pagestyle"),
+  menuhamburguesa = document.querySelector(".menu-theme");
+
+botonDropdown.addEventListener("click", desplegarLista);
+
 function desplegarLista(e) {
   let elemento = e.target;
+  console.log("oprimí botón");
   if (elemento.classList.contains("isActive")) {
     elemento.classList.remove("isActive");
     menuhamburguesa.style.display = "none";
@@ -67,14 +81,6 @@ function desplegarLista(e) {
   //menuhamburguesa.style.display="none"
 }
 
-const input = document.querySelector("#searcher-input");
-const log = document.querySelector(".suggestions-list");
-const margin = document.querySelector(".search-box");
-const topmargin = document.querySelector(".suggestions-input");
-
-input.addEventListener("input", desplegarSuggestions);
-input.addEventListener("input", desplegarSuggestions);
-
 function desplegarSuggestions(e) {
   if (input.value.length > 0) {
     log.style.visibility = "visible";
@@ -85,4 +91,8 @@ function desplegarSuggestions(e) {
     log.style.height = "0px";
     margin.style.marginBottom = "80px";
   }
+}
+
+function swapStyleSheet(sheet) {
+  styles.setAttribute("href", sheet);
 }
