@@ -463,4 +463,21 @@ span .verMas_button {
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
 
+.BotonBuscando {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 18px;
+}
+
+.BotonBuscando:active {
+  background: #e6bbe2;
+  outline-style: dotted;
+  outline-width: 1px;
+  outline-offset: -4px;
+}
 /* Mis guifos */

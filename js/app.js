@@ -3,7 +3,7 @@ let inputBuscar = document.querySelector("#searcher-input"),
   botonBuscar = document.querySelector("#search-bttn"),
   searchTrends = document.querySelector("#trends-p");
 
-console.log(botonBuscar);
+// console.log(botonBuscar);
 //////////////event listeners////////////
 
 botonBuscar.addEventListener("click", traerPalabraBusqueda);
@@ -54,8 +54,12 @@ function BuscarGif(palabraBusqueda) {
   //console.log("server response"+serverResponse);
   serverResponse.then((gifsEntrantes) => {
     ui.displaySearch(gifsEntrantes.gif.data);
+
     //console.log
   });
+  log.style.visibility = "hidden";
+  log.style.height = "0px";
+  margin.style.marginBottom = "80px";
 }
 
 GetGifs();

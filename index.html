@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GifOS_LauraRamos</title>
     <link rel="stylesheet" href="./styles/normalize.css">   
-   <!-- <link rel="stylesheet" href="./styles/saylor_night.css">  -->
+<!-- <link rel="stylesheet" href="./styles/saylor_night.css"> -->
    <link rel="stylesheet" id="pagestyle" href="./styles/saylor_day.css" type="text/css">
      
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
         <nav>
             <div class="logo">
                 <img src="./images/gifOF_logo.png" alt="Logo_gifOS" class="logo-day" />
-                <img src="./images/gifOF_logo_dark.png" alt="Logo_gifOS" class="logo-night" />
+                <!-- <img src="./images/gifOF_logo_dark.png" alt="Logo_gifOS" class="logo-night" /> -->
             </div>
             <div class="menu">
                 <button class="button-nav" id="create"><span><a class="create" href="./pre-captura1.html">Crear Guifos</a></span></button>
@@ -36,10 +36,10 @@
                 <div class="menu-theme">
                     <ul class="styles">
                         <li>
-                            <button onclick="swapStyleSheet ('./styles/saylor_day.css')" class="day">Sailor Day</button>
+                            <button class="day">Sailor Day</button>
                         </li>
                         <li>
-                            <button onclick="swapStyleSheet ('./styles/saylor_night.css')"class="night">Sailor Night</button>
+                            <button class="night">Sailor Night</button>
                         </li>
                     </ul>
 
@@ -52,10 +52,10 @@
                 <div class="search-box">
                     <p class="search-text">Buscar</p>
                     <div class="searcher">
-                        <input id="searcher-input" type="text" name="searchBar" placeholder="Busca gifs,hashtags,temas,busca lo que quieras..." class="searcher-input" required ></input>
+                        <input id="searcher-input" type="text" name="searchBar" placeholder="Busca gifs,hashtags,temas,busca lo que quieras..." class="searcher-input" required value ="" ></input>
 
                         <div>
-                            <button class="search-button" id="search-bttn"><span class="lupa"><img src="./images/lupa_inactive.svg" alt="lupa"
+                            <button class="search-button" id="search-bttn"><span class="lupa"><img src="./images/lupa_inactive.svg" alt="lupa" class="lupaImg"
                                     >Buscar</span></button>
                         </div>
                     </div>

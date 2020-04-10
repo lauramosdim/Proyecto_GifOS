@@ -23,7 +23,7 @@ class UI {
     let resultadosTrends = document.querySelector(".trends-gifs");
     // console.log(resultadosTrends + "RESULTADOTRENDS");
     for (var i = 4; i < 24; i++) {
-      console.log(gif[i].images.original.url);
+      // console.log(gif[i].images.original.url);
       resultadosTrends.innerHTML += `<div class="trendy-container"><img class ="trend-gif" id="trend-gif" src="${
         gif[i].images.original.url
       }" alt="${gif[i].title}"><div class="footer-gif" id = "footer-gif">${gif[
@@ -40,7 +40,7 @@ class UI {
     let resultadosTrends = document.querySelector(".trends-gifs");
     resultadosTrends.innerHTML = "";
     for (var i = 0; i < 20; i++) {
-      console.log(gif[i].images.original.url);
+      // console.log(gif[i].images.original.url);
       resultadosTrends.innerHTML += `<div class="trendy-container"><img class ="trend-gif" id="trend-gif" src="${
         gif[i].images.original.url
       }" alt="${gif[i].title}"><div class="footer-gif" id = "footer-gif">${gif[
@@ -60,15 +60,22 @@ let input = document.querySelector("#searcher-input"),
   topmargin = document.querySelector(".suggestions-input"),
   search = document.querySelector(".suggestion-button"),
   botonDropdown = document.querySelector("#toggle"),
-  lupa = document.querySelector(".lupa"),
+  lupa = document.querySelector(".lupaImg"),
   styles = document.getElementById("pagestyle"),
-  menuhamburguesa = document.querySelector(".menu-theme");
+  menuhamburguesa = document.querySelector(".menu-theme"),
+  logo = document.querySelector(".logo-day"),
+  day = document.querySelector(".day"),
+  night = document.querySelector(".night"),
+  themeDay = "true",
+  themeNight = "False",
+  stringBuscar = document.querySelector(".searcher-input"),
+  lupaBtton = document.querySelector(".search-button");
 
 botonDropdown.addEventListener("click", desplegarLista);
 
 function desplegarLista(e) {
   let elemento = e.target;
-  console.log("oprimí botón");
+  // console.log("oprimí botón");
   if (elemento.classList.contains("isActive")) {
     elemento.classList.remove("isActive");
     menuhamburguesa.style.display = "none";
@@ -93,6 +100,60 @@ function desplegarSuggestions(e) {
   }
 }
 
-function swapStyleSheet(sheet) {
-  styles.setAttribute("href", sheet);
+day.addEventListener("click", clickDay);
+function clickDay() {
+  themeDay = "true";
+
+  styles.setAttribute("href", "./styles/saylor_day.css");
 }
+
+night.addEventListener("click", clickNight);
+function clickNight() {
+  styles.setAttribute("href", "./styles/saylor_night.css");
+  themeNight = "true";
+  themeDay = "false";
+}
+
+stringBuscar.addEventListener("input", changeButton);
+
+function changeButton() {
+  if (stringBuscar.value.length > 0) {
+    lupa.setAttribute("src", "./images/lupa.svg");
+    lupaBtton.classList.add("BotonBuscando");
+    lupa.classList.add("LupaNight");
+    // console.log("entro");
+  } else {
+    lupa.setAttribute("src", "./images/lupa_inactive.svg");
+    lupaBtton.classList.remove("BotonBuscando");
+    lupa.classList.remove("LupaNight");
+  }
+}
+
+// else {
+//   if (stringBuscar.value.length > 0) {
+//     lupa.setAttribute("src", "./images/lupa.svg");
+//     lupaBtton.classList.add("BotonBuscando");
+//     console.log("entro");
+//   } else {
+//     lupa.setAttribute("src", "./images/lupa_light.svg");
+//     lupaBtton.classList.remove("BotonBuscando");
+//   }
+// }
+
+// function swapStyleSheet(sheet) {
+//   styles.setAttribute("href", sheet);
+// }
+
+// function swapSrcAtt() {
+//   if (themeActual === "night") {
+//     logo.setAttribute("href", "./images/gifOF_logo_dark.png");
+//   } else {
+//   }
+// }
+
+// let input = document.querySelector("input").value;
+// if (input.length > 0) {
+//   document.getElementById("lupa").setAttribute("src", "img/lupa_light.svg");
+// } else {
+//   document.getElementById("lupa").setAttribute("src", "img/Combined Shape.svg");
+// }
