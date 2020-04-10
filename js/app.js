@@ -1,7 +1,9 @@
 ///////////////variables que me traen elementos del dom//
 let inputBuscar = document.querySelector("#searcher-input"),
   botonBuscar = document.querySelector("#search-bttn"),
-  searchTrends = document.querySelector("#trends-p");
+  searchTrends = document.querySelector("#trends-p"),
+  scrollDown = document.querySelector(".searchresults");
+// esconderS = document.querySelector("#suggestions");
 
 // console.log(botonBuscar);
 //////////////event listeners////////////
@@ -14,9 +16,15 @@ input.addEventListener("input", desplegarSuggestions);
 
 ////////////////funciones////////////////
 
+// function traerPalabraBusqueda() {
+//   esconderS.style.display = "none";
+//   console.log("hizo esto");
+// }
+
 function traerPalabraBusqueda(e) {
   // console.log(inputBuscar.value);
   BuscarGif(inputBuscar.value);
+  scrollDown.scrollIntoView({ behavior: "smooth" });
 }
 
 // function cambiarColor(e){

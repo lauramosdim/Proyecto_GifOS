@@ -103,7 +103,7 @@ function desplegarSuggestions(e) {
 day.addEventListener("click", clickDay);
 function clickDay() {
   themeDay = "true";
-
+  logo.setAttribute("src", "./images/gifOF_logo.png");
   styles.setAttribute("href", "./styles/saylor_day.css");
 }
 
@@ -112,6 +112,8 @@ function clickNight() {
   styles.setAttribute("href", "./styles/saylor_night.css");
   themeNight = "true";
   themeDay = "false";
+  logo.setAttribute("src", "./images/gifOF_logo_dark.png");
+  console.log("hizoesto");
 }
 
 stringBuscar.addEventListener("input", changeButton);
