@@ -1,0 +1,527 @@
+* body {
+  background-color: #fff4fd;
+  font-family: "Chakra Petch", sans-serif;
+}
+
+.visits {
+  display: block;
+  margin: 1px;
+  padding: 3px 0 4px 7px;
+  height: 23px;
+  box-shadow: 0 1px 0 0 #110038;
+  color: white;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.visits {
+  background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+}
+
+.visits.night {
+  background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+}
+
+.banner {
+  margin: 35px 0px 0px 99px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin: 5px 690.4px 27px 0;
+}
+
+.create_gif,
+.sel_topic,
+.dropdown {
+  background-color: #f7c9f3;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+.create_gif:hover,
+.sel_topic:hover,
+.dropdown:hover {
+  cursor: pointer;
+  outline: 1px dotted #110038;
+  outline-offset: -4px;
+}
+
+.create_gif {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 144px;
+  height: 36px;
+  margin-right: 16px;
+}
+.create_gif {
+  background-color: #f7c9f3;
+}
+.create_gif.night {
+  background-color: #ee3efe;
+  color: white;
+}
+.sel_topic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 131px;
+  height: 36px;
+  border-right: none;
+}
+.sel_topic {
+  background-color: #f7c9f3;
+}
+.sel_topic.night {
+  background-color: #ee3efe;
+  color: white;
+}
+.dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+}
+.dropdown img {
+  background-color: #f7c9f3;
+}
+.dropdown {
+  background-color: #f7c9f3;
+}
+.dropdown img {
+  background-color: #f7c9f3;
+}
+.dropdown.night {
+  background-color: #ee3efe;
+  color: white;
+}
+.dropdown.night img {
+  background-color: #ee3efe;
+}
+.containermenu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.containermenu .contdropdown {
+  display: flex;
+}
+.containermenu .menu {
+  position: absolute;
+  top: 38px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 170px;
+  height: 102px;
+  background-color: #e6e6e6;
+  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  box-sizing: border-box;
+  z-index: 3;
+}
+.containermenu .menu span {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  width: 150px;
+  height: 36px;
+  box-sizing: border-box;
+  padding-left: 16px;
+  background-color: #f0f0f0;
+  border: 1px solid #808080;
+  box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+}
+.containermenu .menu span:hover {
+  cursor: pointer;
+}
+.containermenu .menu span.SD {
+  background-color: #fff4fd;
+}
+.containermenu .menu span.SD::before {
+  content: "";
+  width: 8px;
+  height: 1px;
+  border: 1px solid #110038;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 6px;
+}
+.containermenu .menu span.SN.night {
+  background-color: #2e32fb;
+  color: white;
+}
+.containermenu .menu span.SN.night::before {
+  content: "";
+  width: 8px;
+  height: 1px;
+  border: 1px solid white;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 6px;
+}
+.mygifos {
+  display: flex;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+  margin-left: 16.5px;
+  width: 95px;
+  height: 32px;
+  font-size: 16px;
+}
+.mygifos::before {
+  content: "";
+  width: 8px;
+  height: 1px;
+  border: 1px solid #110038;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 6px;
+}
+.mygifos:hover {
+  outline: 1px dotted #110038;
+  cursor: pointer;
+}
+.mygifos.night {
+  color: white;
+}
+
+.banner {
+  position: relative;
+}
+.banner .banner_arrow {
+  position: absolute;
+  left: -39px;
+  bottom: 38px;
+  margin: auto;
+}
+
+button:hover {
+  cursor: pointer;
+  outline: 1px dotted #110038;
+  outline-offset: -4px;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+
+.container_createGif {
+  width: 100%;
+}
+
+.createGif {
+  display: block;
+}
+
+.createGif div {
+  position: relative;
+  width: 684px;
+  height: 412px;
+  background-color: #e6e6e6;
+  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  box-sizing: border-box;
+  padding: 54px 93px 0 73px;
+  margin-left: 378px;
+  margin-bottom: 153px;
+}
+.createGif div i,
+.createGif div b,
+.createGif div span,
+.createGif div p {
+  background-color: #e6e6e6;
+}
+.createGif div span {
+  display: block;
+}
+.createGif div .createGif_title {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 3px;
+  left: 3px;
+  width: 678px;
+  height: 24px;
+  background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  color: white;
+  font-family: "Chakra Petch Bold", sans-serif;
+  box-sizing: border-box;
+  padding-left: 4px;
+}
+.createGif div img {
+  position: absolute;
+  left: 25px;
+}
+.createGif div :nth-child(3) {
+  font-family: "Chakra Petch Bold", sans-serif;
+  font-size: 16px;
+  margin-bottom: 17px;
+}
+.createGif div p {
+  margin-bottom: 28px;
+}
+.createGif div .cancel_button,
+.createGif div .start_button {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 36px;
+  align-items: center;
+  width: 144px;
+  height: 36px;
+  font-size: 16px;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+.createGif div .start_button {
+  right: 36px;
+  background-color: #f7c9f3;
+}
+.createGif div .cancel_button {
+  right: 196px;
+  background-color: #fff4fd;
+}
+
+.recordGif {
+  display: none;
+}
+
+.recordGif_window {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 860px;
+  height: 548px;
+  background-color: #e6e6e6;
+  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  box-sizing: border-box;
+  padding: 0 14px 0 0;
+  margin-left: 265px;
+  margin-bottom: 292px;
+}
+.recordGif_window span {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  width: 854px;
+  height: 24px;
+  box-sizing: border-box;
+  padding-left: 4px;
+  background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  color: white;
+  font-family: "Chakra Petch Bold", sans-serif;
+}
+.recordGif_window .close {
+  position: absolute;
+  right: 13px;
+  top: 8px;
+}
+.recordGif_window video {
+  width: 838px;
+  height: 440px;
+  margin: 35px 0 0 8px;
+  border: 1px solid #979797;
+  box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+  padding: 2px;
+}
+.recordGif_window #preview {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 8px;
+  width: 838px;
+  height: 440px;
+  border: 1px solid #979797;
+  box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+  padding: 2px;
+}
+.recordGif_window .buttons_recordGif {
+  display: flex;
+  background-color: #e6e6e6;
+}
+.recordGif_window .buttons_recordGif img {
+  position: absolute;
+  right: 159px;
+  bottom: 16px;
+  padding: 8.5px 8px;
+  background-color: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+.recordGif_window .buttons_recordGif button {
+  position: absolute;
+  width: 144px;
+  height: 36px;
+  color: #110038;
+  font-size: 16px;
+  background-color: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+.recordGif_window .buttons_recordGif #recordImg {
+  display: none;
+  padding: 7px;
+  background-color: #ff6161;
+}
+.recordGif_window .buttons_recordGif .capture_button,
+.recordGif_window .buttons_recordGif .finish_capture_button,
+.recordGif_window .buttons_recordGif .upload_button {
+  bottom: 16px;
+  right: 16px;
+}
+.recordGif_window .buttons_recordGif .finish_capture_button {
+  display: none;
+  background-color: #ff6161;
+  color: white;
+}
+.recordGif_window .buttons_recordGif .upload_button {
+  display: none;
+}
+.recordGif_window .buttons_recordGif .repeat_button {
+  display: none;
+  bottom: 16px;
+  right: 174px;
+  background-color: #fff4fd;
+}
+.recordGif_window .buttons_recordGif .repeat_button:hover {
+  background-color: #f0e5ee;
+}
+.recordGif_window .buttons_recordGif .cancel_button2 {
+  display: none;
+  bottom: 16px;
+  right: 14px;
+  background-color: #fff4fd;
+}
+
+.uploadGif {
+  display: none;
+}
+
+.uploadGif_window {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 721px;
+  height: 391px;
+  background-color: #e6e6e6;
+  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  box-sizing: border-box;
+  margin: 0 0 180px 360px;
+}
+.uploadGif_window :first-child {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 715px;
+  height: 24px;
+  background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  color: white;
+  font-family: "Chakra Petch Bold", sans-serif;
+  box-sizing: border-box;
+  padding-left: 4px;
+}
+.uploadGif_window :nth-child(2) {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+}
+.uploadGif_window :nth-child(3) {
+  width: 371px;
+  height: 196px;
+  margin: 54px 0 0 24px;
+  padding: 2px;
+  border: 1px solid #979797;
+  box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+}
+.uploadGif_window :nth-child(4) {
+  position: absolute;
+  left: 419px;
+  top: 76px;
+  font-family: "Chakra Petch Bold", sans-serif;
+  font-size: 16px;
+  background-color: #e6e6e6;
+}
+.uploadGif_window button {
+  width: 256px;
+  height: 36px;
+  background-color: #fff4fd;
+  font-size: 16px;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  border: 1px solid #110038;
+}
+.uploadGif_window :nth-child(5) {
+  position: absolute;
+  left: 419px;
+  top: 114px;
+}
+.uploadGif_window :nth-child(6) {
+  position: absolute;
+  left: 419px;
+  top: 164px;
+}
+.uploadGif_window :last-child {
+  position: absolute;
+  bottom: 44px;
+  right: 46px;
+  width: 144px;
+  background-color: #f7c9f3;
+}
+
+body {
+  position: absolute;
+  height: 100%;
+}
+
+.container_myGifOs {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+}
+.container_myGifOs .title_myGifOs {
+  display: flex;
+  align-items: center;
+  background-color: #fffafe;
+  width: 1200px;
+  height: 32px;
+  margin-bottom: 16px;
+  padding-left: 7px;
+  line-height: 18px;
+  box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+  border: 1px solid #e6bbe2;
+  box-sizing: border-box;
+}
+.container_myGifOs .content_myGifOs_boxes {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: flex-start;
+  width: 1216px;
+}
+.container_myGifOs .content_myGifOs_boxes .myGifOs_box {
+  display: flex;
+  position: relative;
+  margin-bottom: 16px;
+  margin-right: 16px;
+  height: 298px;
+  width: 288px;
+  background-color: #e6e6e6;
+}
+.container_myGifOs .content_myGifOs_boxes.night {
+  background-color: #110038;
+}
+
+.container_myGifOs.night {
+  background-color: #110038;
+}
+
+.mygifos {
+  color: #88799b;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" class="day">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/images/gifOF_logo.png" type="img/png" />
+    <link rel="stylesheet" href="atomic_css/utilities/normalize.css" />
+    <link rel="stylesheet" href="myGifOs.css" />
+    <title>Mis GifOs</title>
+  </head>
+
+  <body class="day">
+    <span class="visits day"
+      >¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de
+      visitas: 12.765.803</span
+    >
+
+    <header class="banner day">
+      <a href="index.html" class="day"
+        ><img
+          class="logo day"
+          src="assets/images/gifOF_logo.png"
+          alt="Logo página web GifOs"
+      /></a>
+
+      <div class="banner_butt day">
+        <a href="createGif.html" class="create_gif day">Crear Guifos</a>
+        <div class="containermenu">
+          <div class="contdropdown">
+            <span class="sel_topic day" onclick="desplegarMenu()"
+              >Elegir Tema</span
+            >
+            <div class="dropdown day" onclick="desplegarMenu()">
+              <img
+                src="assets/images/dropdown.svg"
+                alt="flecha hacia abajo de menú desplegable"
+              />
+            </div>
+          </div>
+          <div class="menu">
+            <span id="SD" class="SD day" onclick="cambiarATemaDay()"
+              >Sailor Day</span
+            >
+            <span id="SN" class="SN day" onclick="cambiarATemaNight()"
+              >Sailor Night</span
+            >
+          </div>
+        </div>
+        <a href="myGifOs.html" class="mygifos day">Mis Guifos</a>
+      </div>
+    </header>
+
+    <section class="container_myGifOs day">
+      <span class="title_myGifOs">Mis Guifos</span>
+
+      <div class="content_myGifOs_boxes day"></div>
+    </section>
+
+    <script src="assets/scripts/switch_temas.js"></script>
+    <script src="assets/scripts/dropdown.js"></script>
+    <script src="assets/scripts/mis_gifos.js"></script>
+  </body>
+</html>
