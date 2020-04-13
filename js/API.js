@@ -9,7 +9,7 @@ class GiphyAPI {
     const gif = await apiResponse.json();
     // console.log ("respuesta giphy"+gif);
     return {
-      gif
+      gif,
     };
   }
   async BuscarGifs(palabraBusqueda) {
@@ -19,7 +19,18 @@ class GiphyAPI {
     const gif = await apiResponse.json();
     //console.log("respuesta busqueda" + gif);
     return {
-      gif
+      gif,
     };
   }
 }
+// .then(response => {
+//   return response.json();
+// })
+// .then(data => {
+//   return data;
+// })
+// .catch(error => {
+//   return error;
+// });
+// return found;
+// }
