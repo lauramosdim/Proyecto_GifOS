@@ -22,7 +22,18 @@ class GiphyAPI {
       gif,
     };
   }
+  async corona(palabrasug) {
+    const apiResponse = await fetch(
+      `https://api.giphy.com/v1/gifs/search?api_key=ExcuwYMs8iItjhYZLNLm2uyYg4qCVnSi&q=${palabrasug}&limit=25&offset=0&rating=G&lang=en`
+    );
+    const gif = await apiResponse.json();
+    //console.log("respuesta busqueda" + gif);
+    return {
+      gif,
+    };
+  }
 }
+
 // .then(response => {
 //   return response.json();
 // })

@@ -1,22 +1,6 @@
-const video = document.querySelector("video");
-
-async function stopRecordingCallback() {
-  video.srcObject = null;
-  let blob = await recorder.getBlob();
-  video.src = URL.createObjectURL(blob);
-  recorder.stream.getTracks((t) => t.stop());
-
-  // reset recorder's state
-  await recorder.reset();
-
-  // clear the memory
-  await recorder.destroy();
-
-  // so that we can record again
-  recorder = null;
-}
-
 let recorder; // globally accessible
+const video = document.querySelector("video");
+let blob;
 
 document
   .querySelector(".start_button")
@@ -87,7 +71,7 @@ const validateAndPrepareNavigator = async () => {
 
 let captureButton = document.querySelector(".capture_button"),
   cameraImg = document.getElementById("cameraImg"),
-  finishCaptureButton = document.querySelector(".finish_capture_button"),
+  finishButton = document.querySelector(".finish_capture_button"),
   closeImg = document.querySelector(".close"),
   recordImg = document.getElementById("recordImg"),
   recordGifTitle = document.querySelector(".recordGif_title"),
@@ -100,16 +84,19 @@ let captureButton = document.querySelector(".capture_button"),
   okButton = document.querySelector(".ok_button");
 const apiKey = "ExcuwYMs8iItjhYZLNLm2uyYg4qCVnSi";
 
-captureButton.addEventListener("click", async function () {
+captureButton.addEventListener("click", function () {
   console.log("Grabación iniciada!");
   captureButton.style.display = "none";
   cameraImg.style.display = "none";
-  finishCaptureButton.style.display = "block";
-  recordImg.style.display = "block";
+
   recordGifTitle.innerHTML = "Capturando Tu Gifo";
-  startRecording();
+  startRecording2();
 });
-const startRecording = async () => {
+
+const startStopWatch = () => {
+  console.log("hola");
+};
+const startRecording2 = async () => {
   recorder = RecordRTC(stream, {
     type: "gif",
     frameRate: 1,
@@ -118,43 +105,86 @@ const startRecording = async () => {
     hidden: 240,
     onGifRecordingStarted: () => {
       // started
-      takeScreenshotFromRecord();
+      finishButton.style.display = "block";
+      recordImg.style.display = "block";
+      // takeScreenshotFromRecord();
       startStopWatch();
+      // console.log("started");
     },
   });
-  await recorder.reset();
+  //await recorder.reset();
   recorder.startRecording();
   console.log("estoy grabando");
 };
-// This method resets the recorder. So that you can reuse single recorder instance many times.
 
-//     document.getElementById('btn-stop-recording').disabled = false;
+finishButton.addEventListener("click", async function () {
+  console.log("Grabación detenida!");
+  finishButton.style.display = "none";
+  recordImg.style.display = "none";
+  repeatButton.style.display = "block";
+  uploadButton.style.display = "block";
+  closeImg.style.display = "none";
+  recordGifTitle.innerHTML = "Vista Previa";
 
-//     // if you want to access internal recorder
-//     const internalRecorder = await recorder.getInternalRecorder();
-//     console.log('internal-recorder', internalRecorder.name);
+  // Oculta el video y muestra la vista previa
 
-//     // if you want to read recorder's state
-//     console.log('recorder state: ', await recorder.getState());
+  video.style.display = "none";
+  vistaPrevia.style.display = "block";
+
+  recorder.stopRecording(function (blobURL) {
+    console.log(blobURL);
+    //video.srcObject = null;
+    vistaPrevia.src = blobURL;
+  });
+  // // Stop streaming - Close webcam -> Taken from https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack/stop
+  stream.getTracks().forEach((track) => track.stop());
+  // // Also reset recorder states and remove the data
+  await recorder.reset();
+  // // Destroy RecordRTC instance. Clear all recorders, objects and memory. Clear everything.
+  await recorder.destroy();
+
+  recorder = null;
+});
+
+repeatButton.addEventListener("click", () => {
+  video.style.display = "block";
+  vistaPrevia.style.display = "none";
+  repeatButton.style.display = "none";
+  uploadButton.style.display = "none";
+  captureButton.style.display = "block";
+  cameraImg.style.display = "block";
+  startVideo();
+});
+
+// const stopRecording2 = async () => {
+//   await recorder.stopRecording((blobURL) => {
+//     video.srcObject = null;
+//     console.log(blobURL);
+//     vistaPrevia.src = blobURL;
+// blob = recorder.getBlob();
+
+// let urlVideo = URL.createObjectURL(blob); // Show preview
+// vistaPrevia.src = urlVideo;
+// console.log(urlVideo);
+
+// // Stop streaming - Close webcam -> Taken from https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack/stop
+// stream.getTracks().forEach((track) => track.stop());
+// // Also reset recorder states and remove the data
+// await recorder.reset();
+// // Destroy RecordRTC instance. Clear all recorders, objects and memory. Clear everything.
+// await recorder.destroy();
+
+// recorder = null;
+//   });
 // };
 
-// document.getElementById('btn-stop-recording').onclick = async function() {
-//     this.disabled = true;
-//     await recorder.stopRecording();
-//     stopRecordingCallback();
-//     document.getElementById('btn-start-recording').disabled = false;
+// const takeScreenshotFromRecord = () => {
+//   let canvas = document.createElement("canvas"); // Dynamically Create a Canvas Element
+//   canvas.id = "extractFileCanvas"; // Give the canvas an id
+//   canvas.width = video.videoWidth; // Set the width of the Canvas
+//   canvas.height = video.videoHeight; // Set the height of the Canvas
+//   let ctx = canvas.getContext("2d"); // Get the "CTX" of the canvas
+//   ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight); // Draw your image to the canvas
+//   let pngFile = canvas.toDataURL("image/png"); // This will save your image as a //png file in the base64 format.
+//   videoPreview.src = pngFile;
 // };
-// let captureButton = document.querySelector(".capture_button"),
-//   cameraImg = document.getElementById("cameraImg"),
-//   finishCaptureButton = document.querySelector(".finish_capture_button"),
-//   closeImg = document.querySelector(".close"),
-//   recordImg = document.getElementById("recordImg"),
-//   recordGifTitle = document.querySelector(".recordGif_title"),
-//   repeatButton = document.querySelector(".repeat_button"),
-//   uploadButton = document.querySelector(".upload_button"),
-//   vistaPrevia = document.getElementById("preview"),
-//   vistaPreviaUpload = document.getElementById("upload_preview"),
-//   copyButton = document.querySelector(".copy_button"),
-//   downloadButton = document.querySelector(".download_button"),
-//   okButton = document.querySelector(".ok_button");
-// const apiKey = "ExcuwYMs8iItjhYZLNLm2uyYg4qCVnSi";
