@@ -82,7 +82,6 @@ let captureButton = document.querySelector(".capture_button"),
   copyButton = document.querySelector(".copy_button"),
   downloadButton = document.querySelector(".download_button"),
   okButton = document.querySelector(".ok_button");
-const apiKey = "ExcuwYMs8iItjhYZLNLm2uyYg4qCVnSi";
 
 captureButton.addEventListener("click", function () {
   console.log("Grabación iniciada!");
@@ -134,6 +133,7 @@ finishButton.addEventListener("click", async function () {
   recorder.stopRecording(function (blobURL) {
     console.log(blobURL);
     //video.srcObject = null;
+    blob = recorder.getBlob();
     vistaPrevia.src = blobURL;
   });
   // // Stop streaming - Close webcam -> Taken from https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack/stop
@@ -156,35 +156,101 @@ repeatButton.addEventListener("click", () => {
   startVideo();
 });
 
-// const stopRecording2 = async () => {
-//   await recorder.stopRecording((blobURL) => {
-//     video.srcObject = null;
-//     console.log(blobURL);
-//     vistaPrevia.src = blobURL;
-// blob = recorder.getBlob();
+const myID = "lauraramos9a9a";
+const apiKey = "ExcuwYMs8iItjhYZLNLm2uyYg4qCVnSi";
+let gifID;
 
-// let urlVideo = URL.createObjectURL(blob); // Show preview
-// vistaPrevia.src = urlVideo;
-// console.log(urlVideo);
+uploadButton.addEventListener("click", async function () {
+  let formdata = new FormData();
 
-// // Stop streaming - Close webcam -> Taken from https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack/stop
-// stream.getTracks().forEach((track) => track.stop());
-// // Also reset recorder states and remove the data
-// await recorder.reset();
-// // Destroy RecordRTC instance. Clear all recorders, objects and memory. Clear everything.
-// await recorder.destroy();
+  formdata.append("api_key", apiKey);
+  formdata.append("username", myID);
+  formdata.append("file", blob, "myGif.gif");
 
-// recorder = null;
-//   });
-// };
+  let requestOptions = {
+    method: "POST",
+    body: formdata,
+    redirect: "follow",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    referrerPolicy: "no-referrer",
+  };
 
-// const takeScreenshotFromRecord = () => {
-//   let canvas = document.createElement("canvas"); // Dynamically Create a Canvas Element
-//   canvas.id = "extractFileCanvas"; // Give the canvas an id
-//   canvas.width = video.videoWidth; // Set the width of the Canvas
-//   canvas.height = video.videoHeight; // Set the height of the Canvas
-//   let ctx = canvas.getContext("2d"); // Get the "CTX" of the canvas
-//   ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight); // Draw your image to the canvas
-//   let pngFile = canvas.toDataURL("image/png"); // This will save your image as a //png file in the base64 format.
-//   videoPreview.src = pngFile;
-// };
+  uploadedGifData = await fetch(
+    "http://upload.giphy.com/v1/gifs",
+    requestOptions
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      gifID = data.data.id;
+      console.log(data);
+      setLocalStorage(data.data.id);
+    })
+    .catch((error) => {
+      console.error(error.message);
+    });
+
+  await fetch(
+    "https://api.giphy.com/v1/gifs/" +
+      gifID +
+      "?api_key=ExcuwYMs8iItjhYZLNLm2uyYg4qCVnSi&"
+  )
+    .then((response) => response.json())
+    .then((geturl) => (myURL = geturl.data.images.original.url));
+
+  vistaPreviaUpload.setAttribute("src", myURL);
+
+  document.querySelector(".uploadGif").style.display = "block";
+
+  document.querySelector(".recordGif").style.display = "none";
+});
+
+function setLocalStorage(id) {
+  localStorage.setItem("gifKey", id);
+}
+
+copyButton.addEventListener("click", function () {
+  var hiddenInput = document.createElement("input");
+
+  hiddenInput.setAttribute("value", myURL);
+
+  document.body.appendChild(hiddenInput);
+
+  hiddenInput.select();
+
+  document.execCommand("copy");
+
+  document.body.removeChild(hiddenInput);
+});
+
+downloadButton.addEventListener("click", function () {
+  let enlaceExterno = document.createElement("a");
+
+  enlaceExterno.href = myURL;
+
+  enlaceExterno.target = "_blank";
+
+  enlaceExterno.download = myURL;
+
+  document.body.appendChild(enlaceExterno);
+
+  enlaceExterno.click();
+
+  document.body.removeChild(enlaceExterno);
+});
+
+okButton.addEventListener("click", function () {
+  document.location.reload();
+});
+
+// })
+// .catch(function(error) {
+
+// alert("Es necesario permitir el uso de la cámara para continuar - " + error)
+
+// })
+
+// })
