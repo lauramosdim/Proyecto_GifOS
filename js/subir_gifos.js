@@ -81,7 +81,8 @@ let captureButton = document.querySelector(".capture_button"),
   vistaPreviaUpload = document.getElementById("upload_preview"),
   copyButton = document.querySelector(".copy_button"),
   downloadButton = document.querySelector(".download_button"),
-  okButton = document.querySelector(".ok_button");
+  okButton = document.querySelector(".ok_button"),
+  subiendo = document.querySelector(".globe");
 
 captureButton.addEventListener("click", function () {
   console.log("Grabación iniciada!");
@@ -103,12 +104,8 @@ const startRecording2 = async () => {
     width: 360,
     hidden: 240,
     onGifRecordingStarted: () => {
-      // started
       finishButton.style.display = "block";
       recordImg.style.display = "block";
-      // takeScreenshotFromRecord();
-      startStopWatch();
-      // console.log("started");
     },
   });
   //await recorder.reset();
@@ -160,7 +157,27 @@ const myID = "lauraramos9a9a";
 const apiKey = "ExcuwYMs8iItjhYZLNLm2uyYg4qCVnSi";
 let gifID;
 
+function repeat() {
+  repeatButton.addEventListener("click", () => {
+    document.location.reload();
+  });
+}
+
 uploadButton.addEventListener("click", async function () {
+  repeat();
+
+  recordGifTitle.innerHTML = "Subiendo Guifo";
+  vistaPrevia.style.height = "48px";
+  vistaPrevia.style.width = "48px";
+  vistaPrevia.style.marginTop = "150px";
+  vistaPrevia.style.marginLeft = "420px";
+  repeatButton.innerHTML = "Cancelar";
+  repeatButton.style.marginLeft = "200px";
+  uploadButton.style.display = "none";
+
+  vistaPrevia.src = "../images/globe_img.png";
+  subiendo.style.display = "block";
+
   let formdata = new FormData();
 
   formdata.append("api_key", apiKey);
@@ -177,17 +194,24 @@ uploadButton.addEventListener("click", async function () {
     referrerPolicy: "no-referrer",
   };
 
-  uploadedGifData = await fetch(
-    "http://upload.giphy.com/v1/gifs",
-    requestOptions
-  )
+  await fetch("http://upload.giphy.com/v1/gifs", requestOptions)
     .then((response) => {
       return response.json();
     })
     .then((data) => {
       gifID = data.data.id;
       console.log(data);
-      setLocalStorage(data.data.id);
+      // setLocalStorage(data.data.id);
+      let myGifosIds = localStorage.getItem("my_gifos");
+
+      if (myGifosIds) {
+        myGifosIds = `${data.data.id},${myGifosIds}`;
+        localStorage.setItem("my_gifos", myGifosIds);
+        contenedor_gifos.innerHTML = "";
+        showGifs();
+      } else {
+        localStorage.setItem("my_gifos", data.data.id);
+      }
     })
     .catch((error) => {
       console.error(error.message);
@@ -208,9 +232,9 @@ uploadButton.addEventListener("click", async function () {
   document.querySelector(".recordGif").style.display = "none";
 });
 
-function setLocalStorage(id) {
-  localStorage.setItem("gifKey", id);
-}
+// function setLocalStorage(id) {
+//   localStorage.setItem("gifKey", id);
+// }
 
 copyButton.addEventListener("click", function () {
   var hiddenInput = document.createElement("input");

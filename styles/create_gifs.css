@@ -525,3 +525,16 @@ body {
 .mygifos {
   color: #88799b;
 }
+
+.globe {
+  display: none;
+  padding-left: 360px;
+  padding-top: 250px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #110038;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 22px;
+  font-family: "Chakra Petch", sans-serif;
+}
