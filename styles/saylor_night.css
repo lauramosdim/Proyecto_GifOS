@@ -74,7 +74,7 @@ nav {
   background: #ce36db;
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
-  outline-style: dotted #110038;
+  outline-style: dotted;
   outline-width: 1px;
   outline-offset: -4px;
   outline-color: #110038;
@@ -445,9 +445,8 @@ span .verMas_button {
   letter-spacing: 0;
   font-weight: 600;
   height: 15%;
-
   padding: 1%;
-  display: absolute;
+  
   margin-top: -5px;
 }
 #footer-gif {

@@ -2,73 +2,6 @@ let recorder; // globally accessible
 const video = document.querySelector("video");
 let blob;
 
-document
-  .querySelector(".start_button")
-  .addEventListener("click", async function () {
-    document.querySelector(".recordGif").style.display = "block";
-    document.querySelector(".createGif").style.display = "none";
-    startVideo();
-  });
-
-// Taken from https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia and https://recordrtc.org/
-const startVideo = () => {
-  navigator.mediaDevices
-    .getUserMedia({
-      audio: false,
-      video: {
-        height: { ideal: 440 },
-        width: { ideal: 838 },
-      },
-    })
-    .then((stream) => {
-      this.stream = stream;
-
-      // Older browsers may not have srcObject
-      if ("srcObject" in video) {
-        video.srcObject = stream;
-      } else {
-        // Avoid using this in new browsers, as it is going away.
-        video.src = window.URL.createObjectURL(stream);
-      }
-      video.onloadedmetadata = (e) => video.play();
-      console.log("entré");
-    })
-    .catch((err) => {
-      console.error(`${err.name}: ${err.message}`);
-    });
-};
-
-const validateAndPrepareNavigator = async () => {
-  // Older browsers might not implement mediaDevices at all, so we set an empty object first
-  if (navigator.mediaDevices === undefined) {
-    navigator.mediaDevices = {};
-  }
-
-  // Some browsers partially implement mediaDevices. We can't just assign an object
-  // with getUserMedia as it would overwrite existing properties.
-  // Here, we will just add the getUserMedia property if it's missing.
-  if (navigator.mediaDevices.getUserMedia === undefined) {
-    navigator.mediaDevices.getUserMedia = (constraints) => {
-      // First get ahold of the legacy getUserMedia, if present
-      const getUserMedia =
-        navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-
-      // Some browsers just don't implement it - return a rejected promise with an error
-      // to keep a consistent interface
-      if (!getUserMedia) {
-        return Promise.reject(
-          new Error("getUserMedia is not implemented in this browser")
-        );
-      }
-
-      // Otherwise, wrap the call to the old navigator.getUserMedia with a Promise
-      return new Promise((resolve, reject) => {
-        getUserMedia.call(navigator, constraints, resolve, reject);
-      });
-    };
-  }
-};
-
 let captureButton = document.querySelector(".capture_button"),
   cameraImg = document.getElementById("cameraImg"),
   finishButton = document.querySelector(".finish_capture_button"),
@@ -84,6 +17,69 @@ let captureButton = document.querySelector(".capture_button"),
   okButton = document.querySelector(".ok_button"),
   subiendo = document.querySelector(".globe");
 
+// Preparar la grabación/
+
+document
+  .querySelector(".start_button")
+  .addEventListener("click", async function () {
+    document.querySelector(".recordGif").style.display = "block";
+    document.querySelector(".createGif").style.display = "none";
+    startVideo();
+  });
+
+const startVideo = () => {
+  navigator.mediaDevices
+    .getUserMedia({
+      audio: false,
+      video: {
+        height: {
+          ideal: 440
+        },
+        width: {
+          ideal: 838
+        },
+      },
+    })
+    .then((stream) => {
+      this.stream = stream;
+
+      if ("srcObject" in video) {
+        video.srcObject = stream;
+      } else {
+        video.src = window.URL.createObjectURL(stream);
+      }
+      video.onloadedmetadata = (e) => video.play();
+      console.log("entré");
+    })
+    .catch((err) => {
+      console.error(`${err.name}: ${err.message}`);
+    });
+};
+
+const validateAndPrepareNavigator = async () => {
+  if (navigator.mediaDevices === undefined) {
+    navigator.mediaDevices = {};
+  }
+
+  if (navigator.mediaDevices.getUserMedia === undefined) {
+    navigator.mediaDevices.getUserMedia = (constraints) => {
+      const getUserMedia =
+        navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+      if (!getUserMedia) {
+        return Promise.reject(
+          new Error("getUserMedia is not implemented in this browser")
+        );
+      }
+
+      return new Promise((resolve, reject) => {
+        getUserMedia.call(navigator, constraints, resolve, reject);
+      });
+    };
+  }
+};
+
+//Grabar el guifo
 captureButton.addEventListener("click", function () {
   console.log("Grabación iniciada!");
   captureButton.style.display = "none";
@@ -207,6 +203,9 @@ uploadButton.addEventListener("click", async function () {
       if (myGifosIds) {
         myGifosIds = `${data.data.id},${myGifosIds}`;
         localStorage.setItem("my_gifos", myGifosIds);
+        const contenedor_gifos = document.querySelector(
+          ".content_myGifOs_boxes"
+        );
         contenedor_gifos.innerHTML = "";
         showGifs();
       } else {
@@ -219,8 +218,8 @@ uploadButton.addEventListener("click", async function () {
 
   await fetch(
     "https://api.giphy.com/v1/gifs/" +
-      gifID +
-      "?api_key=ExcuwYMs8iItjhYZLNLm2uyYg4qCVnSi&"
+    gifID +
+    "?api_key=ExcuwYMs8iItjhYZLNLm2uyYg4qCVnSi&"
   )
     .then((response) => response.json())
     .then((geturl) => (myURL = geturl.data.images.original.url));
@@ -230,6 +229,65 @@ uploadButton.addEventListener("click", async function () {
   document.querySelector(".uploadGif").style.display = "block";
 
   document.querySelector(".recordGif").style.display = "none";
+
+  let create = document.getElementById("create"),
+    choose = document.getElementById("choose"),
+    bttMyGifs = document.querySelector(".dropdown"),
+    Gifs2 = document.querySelector(".my-gifs");
+
+  create.style.display = "block";
+  bttMyGifs.style.display = "block";
+  choose.style.display = "block";
+  Gifs2.style.display = "block";
+
+  let botonDropdown = document.querySelector("#toggle"),
+    menuhamburguesa = document.querySelector(".menu-theme"),
+    logo = document.querySelector(".logo"),
+    day = document.querySelector(".day"),
+    night = document.querySelector(".night");
+
+  botonDropdown.addEventListener("click", desplegarLista);
+
+  function desplegarLista(e) {
+    let elemento = e.target;
+    // console.log("oprimí botón");
+    if (elemento.classList.contains("isActive")) {
+      elemento.classList.remove("isActive");
+      menuhamburguesa.style.display = "none";
+    } else {
+      elemento.classList.add("isActive");
+      menuhamburguesa.style.display = "block";
+    }
+  }
+
+  day.addEventListener("click", clickDay);
+
+  function clickDay() {
+    logo.setAttribute("src", "../images/gifOF_logo.png");
+    document.body.style.background = "#fff4fd";
+    create.style.background = "#F7C9F3";
+    bttMyGifs.style.background = "#F7C9F3";
+    choose.style.background = "#F7C9F3";
+    Gifs2.style.color = "#110038";
+    create.style.color = "#110038";
+    bttMyGifs.style.color = "#110038";
+    choose.style.color = "#110038";
+  }
+
+  night.addEventListener("click", clickNight);
+
+  function clickNight() {
+    document.body.style.background = "#110038";
+
+    logo.setAttribute("src", "../images/gifOF_logo_dark.png");
+    create.style.background = "#EE3EFE";
+    bttMyGifs.style.background = "#EE3EFE";
+    choose.style.background = "#EE3EFE";
+    Gifs2.style.color = "#FFFFFF";
+    // create.style.color = "#FFFFFF";
+    //bttMyGifs.style.color = "#FFFFFF";
+    // choose.style.color = "#FFFFFF";
+  }
 });
 
 // function setLocalStorage(id) {
@@ -270,11 +328,75 @@ okButton.addEventListener("click", function () {
   document.location.reload();
 });
 
-// })
-// .catch(function(error) {
+function mostrarVista() {
+  const search = window.location.search;
 
-// alert("Es necesario permitir el uso de la cámara para continuar - " + error)
+  if (search == "?view=list") {
+    // Vista mostrar mis guifos
+    console.log("Esta es la vista de mis guifos.");
+    document.getElementById("container_createGif").style.display = "none";
+    let create = document.getElementById("create"),
+      choose = document.getElementById("choose"),
+      bttMyGifs = document.querySelector(".dropdown"),
+      Gifs2 = document.querySelector(".my-gifs");
+    banner = document.querySelector(".banner");
+    create.style.display = "block";
+    bttMyGifs.style.display = "block";
+    choose.style.display = "block";
+    Gifs2.style.display = "block";
 
-// })
+    let botonDropdown = document.querySelector("#toggle"),
+      menuhamburguesa = document.querySelector(".menu-theme"),
+      logo = document.querySelector(".logo"),
+      day = document.querySelector(".day"),
+      night = document.querySelector(".night");
+    banner.style.marginBottom = "90px";
+    botonDropdown.addEventListener("click", desplegarLista);
 
-// })
+    function desplegarLista(e) {
+      let elemento = e.target;
+      // console.log("oprimí botón");
+      if (elemento.classList.contains("isActive")) {
+        elemento.classList.remove("isActive");
+        menuhamburguesa.style.display = "none";
+      } else {
+        elemento.classList.add("isActive");
+        menuhamburguesa.style.display = "block";
+      }
+    }
+
+    day.addEventListener("click", clickDay);
+
+    function clickDay() {
+      logo.setAttribute("src", "../images/gifOF_logo.png");
+      document.body.style.background = "#fff4fd";
+      create.style.background = "#F7C9F3";
+      bttMyGifs.style.background = "#F7C9F3";
+      choose.style.background = "#F7C9F3";
+      Gifs2.style.color = "#110038";
+      create.style.color = "#110038";
+      bttMyGifs.style.color = "#110038";
+      choose.style.color = "#110038";
+    }
+
+    night.addEventListener("click", clickNight);
+
+    function clickNight() {
+      document.body.style.background = "#110038";
+
+      logo.setAttribute("src", "../images/gifOF_logo_dark.png");
+      create.style.background = "#EE3EFE";
+      bttMyGifs.style.background = "#EE3EFE";
+      choose.style.background = "#EE3EFE";
+      Gifs2.style.color = "#FFFFFF";
+      // create.style.color = "#FFFFFF";
+      //bttMyGifs.style.color = "#FFFFFF";
+      // choose.style.color = "#FFFFFF";
+    }
+  } else {
+    // ?view=create Vista crear mis guifos
+    console.log("Esta es la vista de crear guifos.");
+  }
+}
+
+mostrarVista();

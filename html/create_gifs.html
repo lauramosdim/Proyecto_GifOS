@@ -1,120 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../styles/normalize.css" />
-    <link rel="stylesheet" href="../styles/create_gifs.css" />
-    <title>Crear Gif</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <body>
-    <span class="visits"
-      >¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de
-      visitas: 12.765.803</span
-    >
+  <link rel="stylesheet" href="../styles/normalize.css" />
+  <link rel="stylesheet" href="../styles/create_gifs.css" />
+  <title>Crear Guifos</title>
+</head>
 
-    <header class="banner">
-      <a href="../index.html"
-        ><img
-          class="banner_arrow"
-          src="../images/arrow.svg"
-          alt="icono de flecha apuntando hacia la izquierda para volver al home"
-      /></a>
-      <img
-        class="logo"
-        src="../images/gifOF_logo.png"
-        alt="Logo página web GifOs"
-      />
-    </header>
+<body>
+  <span class="visits">¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de
+    visitas: 12.765.803</span>
 
-    <section class="container_createGif">
-      <article class="createGif">
-        <div>
-          <span class="createGif_title">Crear Guifos</span>
-          <img
-            src="../images/window img.png"
-            alt="Logo que representa una ventana de windows"
-          />
-          <span>Aquí podrás crear tus propios guifos</span>
-          <p>
-            Crear tu <b><i>guifo</i></b> es muy fácil, graba cualquier imagen
-            con tu cámara y obtén guifos personalizados. Los pasos para crear tu
-            guifo son: <br /><br /><b>1)</b> Dar permisos de acceso a la cámara
-            (sólo por el tiempo de uso) <br /><br /><b>2)</b> Capturar tu
-            momento guifo <br /><br /><b>3)</b> Revisar el momento
-            <br /><br /><b>4)</b> Listo para subir y compartir!
-            <br /><br />¿Quieres comenzar a crear tu <b><i>guifo</i></b> ahora?
-          </p>
-          <a href="../index.html"
-            ><button class="cancel_button">Cancelar</button></a
-          >
-          <button class="start_button">Comenzar</button>
+  <header class="banner">
+
+    <a href="../index.html"><img class="banner_arrow" src="../images/arrow.svg"
+        alt="icono de flecha apuntando hacia la izquierda para volver al home" /></a>
+    <img class="logo" src="../images/gifOF_logo.png" alt="Logo página web GifOs" />
+    <div class="menu">
+      <button class="button-nav" id="create"><span><a class="create" href="./create_gifs.html?view=create">Crear
+            Guifos</a></span></button>
+      <button class="button-nav" id="choose"><span>Elegir Tema</span></button>
+      <button class="dropdown" id="toggle"><span><img class="flecha-drop" src="../images/dropdown.svg"
+            alt="Dropdown Arrow"></span></button>
+      <div class="menu-theme">
+        <ul class="styles">
+          <li>
+            <button class="day">Sailor Day</button>
+          </li>
+          <li>
+            <button class="night">Sailor Night</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <a href="./create_gifs.html?view=list"><span class="my-gifs"><span class="m">M</span>is Guifos</span></a>
+
+  </header>
+
+  <section class="container_createGif" id="container_createGif">
+    <article class="createGif">
+      <div>
+        <span class="createGif_title">Crear Guifos</span>
+        <img src="../images/window_img.png" alt="Logo que representa una ventana de windows" />
+        <span>Aquí podrás crear tus propios guifos</span>
+        <p>
+          Crear tu <b><i>guifo</i></b> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados.
+          Los pasos para crear tu guifo son:
+          <br />
+          <br /><b>1)</b> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)
+          <br />
+          <br /><b>2)</b> Capturar tu momento guifo
+          <br />
+          <br /><b>3)</b> Revisar el momento
+          <br />
+          <br /><b>4)</b> Listo para subir y compartir!
+          <br />
+          <br />¿Quieres comenzar a crear tu <b><i>guifo</i></b> ahora?
+        </p>
+        <a href="../index.html">
+          <button class="cancel_button">Cancelar</button>
+        </a>
+        <button class="start_button">Comenzar</button>
+      </div>
+    </article>
+
+    <article class="recordGif">
+      <div class="recordGif_window">
+        <span class="recordGif_title">Un chequeo antes de empezar</span>
+        <img class="close" src="../images/close.svg" alt="imagen de botón 'x' para cerrar" />
+        <video src="#"></video>
+        <img id="preview" src="#" alt="Vista previa del gif grabado" />
+
+        <div class="buttons_recordGif">
+          <img id="cameraImg" src="../images/camera.svg" alt="Icono de una cámara fotográfica" />
+          <p class="globe">Estamos subiendo tu Guifo...</p>
+          <button class="capture_button">Capturar</button>
+          <img id="recordImg" src="../images/recording.svg" alt="Icono que simboliza que se ha iniciado la grabación" />
+          <button class="finish_capture_button">Listo</button>
+          <button class="repeat_button">Repetir Captura</button>
+          <button class="upload_button">Subir Gifo</button>
+          <button class="cancel_button2">Cancelar</button>
         </div>
-      </article>
+      </div>
+    </article>
 
-      <article class="recordGif">
-        <div class="recordGif_window">
-          <span class="recordGif_title">Un chequeo antes de empezar</span>
-          <img
-            class="close"
-            src="../images/close.svg"
-            alt="imagen de botón 'x' para cerrar"
-          />
-          <video src=""></video>
-          <img id="preview" src="" alt="Vista previa del gif grabado" />
+    <article class="uploadGif">
+      <div class="uploadGif_window">
+        <span class="uploadGif_title">Guifo subido con éxito</span>
+        <img class="close" src="../images/close.svg" alt="imagen de botón 'x' para cerrar" />
+        <img id="upload_preview" src="https://i.pinimg.com/originals/53/01/42/53014253ce2393eb4314eee0914b597d.jpg"
+          alt="Vista previa del gif subido" />
+        <span>Guifo creado con éxito</span>
+        <button class="copy_button">Copiar Enlace Guifo</button>
+        <button class="download_button">Descargar Guifo</button>
+        <button class="ok_button">Listo</button>
+      </div>
+    </article>
+  </section>
 
-          <div class="buttons_recordGif">
-            <img
-              id="cameraImg"
-              src="../images/camera.svg"
-              alt="Icono de una cámara fotográfica"
-            />
-            <p class="globe">Estamos subiendo tu Guifo...</p>
-            <button class="capture_button">Capturar</button>
-            <img
-              id="recordImg"
-              src="../images/recording.svg"
-              alt="Icono que simboliza que se ha iniciado la grabación"
-            />
-            <button class="finish_capture_button">Listo</button>
-            <button class="repeat_button">Repetir Captura</button>
-            <button class="upload_button">Subir Gifo</button>
-            <button class="cancel_button2">Cancelar</button>
-          </div>
-        </div>
-      </article>
+  <section class="container_myGifOs" id="container_myGifOs">
+    <span class="title_myGifOs">Mis Guifos</span>
 
-      <article class="uploadGif">
-        <div class="uploadGif_window">
-          <span class="uploadGif_title">Guifo subido con éxito</span>
-          <img
-            class="close"
-            src="../images/close.svg"
-            alt="imagen de botón 'x' para cerrar"
-          />
-          <img
-            id="upload_preview"
-            src="https://i.pinimg.com/originals/53/01/42/53014253ce2393eb4314eee0914b597d.jpg"
-            alt="Vista previa del gif subido"
-          />
-          <span>Guifo creado con éxito</span>
-          <button class="copy_button">Copiar Enlace Guifo</button>
-          <button class="download_button">Descargar Guifo</button>
-          <button class="ok_button">Listo</button>
-        </div>
-      </article>
-    </section>
+    <div class="content_myGifOs_boxes"></div>
+  </section>
 
-    <section class="container_myGifOs">
-      <span class="title_myGifOs">Mis Guifos</span>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js"></script>
+  <script src="../js/mis_gifos.js"></script>
+  <script src="../js/subir_gifos.js"></script>
+</body>
 
-      <div class="content_myGifOs_boxes"></div>
-    </section>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js"></script>
-    <script src="../js/mis_gifos.js"></script>
-    <script src="../js/subir_gifos.js"></script>
-  </body>
 </html>

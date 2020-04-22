@@ -2,7 +2,6 @@ class UI {
   displaySuggestions(gif) {
     var gifsResultados = document.querySelector(".suggested-gifs");
     for (var i = 0; i < 4; i++) {
-      //   console.log(gif[i].images.original.url);
       gifsResultados.innerHTML += `<div class="suggested-container"><div class="header-gif">#${gif[
         i
       ].title
@@ -12,9 +11,9 @@ class UI {
           ""
         )} <img class="close-mark" src="./images/close.svg"> </div><img class ="suggested-gif" src="${
         gif[i].images.original.url
-      }" alt="${
+        }" alt="${
         gif[i].title
-      }" ><button class="verMas_button" id="sugerencia1"><span>Ver más</span></button></div>`;
+        }" ><button class="verMas_button" id="sugerencia1"><span>Ver más</span></button></div>`;
     }
     // console.log(gif);
   }
@@ -26,12 +25,12 @@ class UI {
       // console.log(gif[i].images.original.url);
       resultadosTrends.innerHTML += `<div class="trendy-container"><img class ="trend-gif" id="trend-gif" src="${
         gif[i].images.original.url
-      }" alt="${gif[i].title}"><div class="footer-gif" id = "footer-gif">${gif[
-        i
-      ].title
-        .substring(0, gif[i].title.indexOf(" GIF"))
-        .replace(/^/g, "#")
-        .replace(/ /g, "#")}</div></div>`;
+        }" alt="${gif[i].title}"><div class="footer-gif" id = "footer-gif">${gif[
+          i
+        ].title
+          .substring(0, gif[i].title.indexOf(" GIF"))
+          .replace(/^/g, "#")
+          .replace(/ /g, "#")}</div></div>`;
     }
     // console.log(gif);
   }
@@ -40,15 +39,14 @@ class UI {
     let resultadosTrends = document.querySelector(".trends-gifs");
     resultadosTrends.innerHTML = "";
     for (var i = 0; i < 20; i++) {
-      // console.log(gif[i].images.original.url);
       resultadosTrends.innerHTML += `<div class="trendy-container"><img class ="trend-gif" id="trend-gif" src="${
         gif[i].images.original.url
-      }" alt="${gif[i].title}"><div class="footer-gif" id = "footer-gif">${gif[
-        i
-      ].title
-        .substring(0, gif[i].title.indexOf(" GIF"))
-        .replace(/^/g, "#")
-        .replace(/ /g, "#")}</div></div>`;
+        }" alt="${gif[i].title}"><div class="footer-gif" id = "footer-gif">${gif[
+          i
+        ].title
+          .substring(0, gif[i].title.indexOf(" GIF"))
+          .replace(/^/g, "#")
+          .replace(/ /g, "#")}</div></div>`;
     }
   }
 }
@@ -83,9 +81,6 @@ function desplegarLista(e) {
     elemento.classList.add("isActive");
     menuhamburguesa.style.display = "block";
   }
-  // menuhamburguesa.style.display="block"
-
-  //menuhamburguesa.style.display="none"
 }
 
 function desplegarSuggestions(e) {
@@ -101,6 +96,7 @@ function desplegarSuggestions(e) {
 }
 
 day.addEventListener("click", clickDay);
+
 function clickDay() {
   themeDay = "true";
   logo.setAttribute("src", "./images/gifOF_logo.png");
@@ -108,6 +104,7 @@ function clickDay() {
 }
 
 night.addEventListener("click", clickNight);
+
 function clickNight() {
   styles.setAttribute("href", "./styles/saylor_night.css");
   themeNight = "true";
@@ -130,32 +127,3 @@ function changeButton() {
     lupa.classList.remove("LupaNight");
   }
 }
-
-// else {
-//   if (stringBuscar.value.length > 0) {
-//     lupa.setAttribute("src", "./images/lupa.svg");
-//     lupaBtton.classList.add("BotonBuscando");
-//     console.log("entro");
-//   } else {
-//     lupa.setAttribute("src", "./images/lupa_light.svg");
-//     lupaBtton.classList.remove("BotonBuscando");
-//   }
-// }
-
-// function swapStyleSheet(sheet) {
-//   styles.setAttribute("href", sheet);
-// }
-
-// function swapSrcAtt() {
-//   if (themeActual === "night") {
-//     logo.setAttribute("href", "./images/gifOF_logo_dark.png");
-//   } else {
-//   }
-// }
-
-// let input = document.querySelector("input").value;
-// if (input.length > 0) {
-//   document.getElementById("lupa").setAttribute("src", "img/lupa_light.svg");
-// } else {
-//   document.getElementById("lupa").setAttribute("src", "img/Combined Shape.svg");
-// }

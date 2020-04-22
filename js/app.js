@@ -23,12 +23,14 @@ function opcion1() {
   click3 = false;
   corona();
 }
+
 function opcion2() {
   click1 = false;
   click2 = true;
   click3 = false;
   corona();
 }
+
 function opcion3() {
   click1 = false;
   click2 = false;
@@ -70,13 +72,17 @@ function corona() {
   log.style.visibility = "hidden";
   log.style.height = "0px";
   margin.style.marginBottom = "80px";
-  scrollDown.scrollIntoView({ behavior: "smooth" });
+  scrollDown.scrollIntoView({
+    behavior: "smooth"
+  });
 }
 
 function traerPalabraBusqueda(e) {
   // console.log(inputBuscar.value);
   BuscarGif(inputBuscar.value);
-  scrollDown.scrollIntoView({ behavior: "smooth" });
+  scrollDown.scrollIntoView({
+    behavior: "smooth"
+  });
 }
 
 // instancion las clases
@@ -115,9 +121,3 @@ function BuscarGif(palabraBusqueda) {
 
 GetGifs();
 GetTrends();
-
-// function desplegarSuggestions (e) {
-//   let desplegarSuggestion = document.querySelector(".menu-theme");
-//   botonDropdown.addEventListener("click", desplegarLista);
-
-// }

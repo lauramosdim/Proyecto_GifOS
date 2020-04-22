@@ -2,90 +2,95 @@
 <html lang="en">
 
 <head>
-    <meta chartset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GifOS_LauraRamos</title>
-    <link rel="stylesheet" href="./styles/normalize.css">   
-<!-- <link rel="stylesheet" href="./styles/saylor_night.css"> -->
-   <link rel="stylesheet" id="pagestyle" href="./styles/saylor_day.css" type="text/css">
-     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet">
+  <meta chartset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>GifOS_LauraRamos</title>
+  <link rel="stylesheet" href="./styles/normalize.css" />
+
+  <link rel="stylesheet" id="pagestyle" href="./styles/saylor_day.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-    <header>
-        <div class="counter">
-            <p>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</p>
+  <header>
+    <div class="counter">
+      <p>
+        ¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <nav>
+      <div class="logo">
+        <img src="./images/gifOF_logo.png" alt="Logo_gifOS" class="logo-day" />
+
+      </div>
+      <div class="menu">
+        <button class="button-nav" id="create">
+          <span><a class="create" href="./html/create_gifs.html?view=create">Crear Guifos</a></span>
+        </button>
+        <button class="button-nav" id="choose">
+          <span>Elegir Tema</span>
+        </button>
+        <button class="dropdown" id="toggle">
+          <span><img class="flecha-drop" src="./images/dropdown.svg" alt="Dropdown Arrow" /></span>
+        </button>
+        <div class="menu-theme">
+          <ul class="styles">
+            <li>
+              <button class="day">Sailor Day</button>
+            </li>
+            <li>
+              <button class="night">Sailor Night</button>
+            </li>
+          </ul>
         </div>
-    </header>
-
-    <main>
-
-        <nav>
-            <div class="logo">
-                <img src="./images/gifOF_logo.png" alt="Logo_gifOS" class="logo-day" />
-                <!-- <img src="./images/gifOF_logo_dark.png" alt="Logo_gifOS" class="logo-night" /> -->
+        <a href="../html/create_gifs.html?view=list"><span class="my-gifs"><span class="m">M</span>is Guifos</span></a>
+      </div>
+    </nav>
+    <section class="intro">
+      <div class="search">
+        <div class="search-box">
+          <p class="search-text">Buscar</p>
+          <div class="searcher">
+            <input id="searcher-input" type="text" name="searchBar"
+              placeholder="Busca gifs,hashtags,temas,busca lo que quieras..." class="searcher-input" required
+              value="" />
+            <div>
+              <button class="search-button" id="search-bttn">
+                <span class="lupa"><img src="./images/lupa_inactive.svg" alt="lupa" class="lupaImg" />Buscar</span>
+              </button>
             </div>
-            <div class="menu">
-                <button class="button-nav" id="create"><span><a class="create" href="./html/create_gifs.html">Crear Guifos</a></span></button>
-                <button class="button-nav" id="choose"><span>Elegir Tema</span></button>
-                <button class="dropdown" id="toggle"><span><img class="flecha-drop" src="./images/dropdown.svg"
-                            alt="Dropdown Arrow"></span></button>
-                <div class="menu-theme">
-                    <ul class="styles">
-                        <li>
-                            <button class="day">Sailor Day</button>
-                        </li>
-                        <li>
-                            <button class="night">Sailor Night</button>
-                        </li>
-                    </ul>
+          </div>
+        </div>
+        <div class="suggestions-list">
+          <button class="suggestion-button" id="sugeridoButton">
+            <span>Coronavirus</span>
+          </button>
+          <button class="suggestion-button" id="similarButton">
+            <span>Travel</span>
+          </button>
+          <button class="suggestion-button" id="otherButton">
+            <span>Work From Home</span>
+          </button>
+        </div>
+      </div>
+    </section>
 
-                </div>
-                <a href="../html/mis_gifs.html"><span class="my-gifs"><span class="m">M</span>is Guifos</span></a>
-            </div>
-        </nav>
-        <section class="intro">
-            <div class="search">
-                <div class="search-box">
-                    <p class="search-text">Buscar</p>
-                    <div class="searcher">
-                        <input id="searcher-input" type="text" name="searchBar" placeholder="Busca gifs,hashtags,temas,busca lo que quieras..." class="searcher-input" required value ="" ></input>
+    <p class="suggestions-input">Hoy te sugerimos:</p>
 
-                        <div>
-                            <button class="search-button" id="search-bttn"><span class="lupa"><img src="./images/lupa_inactive.svg" alt="lupa" class="lupaImg"
-                                    >Buscar</span></button>
-                        </div>
-                    </div>
-                </div>
-              
-                    <div class="suggestions-list">
-                        <button class="suggestion-button" id="sugeridoButton"><span>Coronavirus</span></button>
-                        <button class="suggestion-button" id="similarButton"><span>Travel</span></button>
-                        <button class="suggestion-button" id="otherButton"><span>Work From Home</span></button>
-                    </div>
-            
-            </div>
+    <div class="suggested-gifs"></div>
+    <section class="searchresults">
+      <p class="suggestions-input" id="trends-p">Tendencias:</p>
+      <div class="trends-gifs"></div>
+    </section>
+  </main>
 
-        </section>
-       
-            <p class="suggestions-input">Hoy te sugerimos:</p>
-        
-        <div class="suggested-gifs">
-                   </div>
-        <section class="searchresults">
-            <p class="suggestions-input" id="trends-p">Tendencias:</p>
-            <div class="trends-gifs">
-            </div>
-
-        </section>
-
-    </main>
-
-    <script src="./js/API.js"></script>
-    <script src="./js/UI.js"></script>
-    <script src="./js/app.js"></script>
-   
+  <script src="./js/API.js"></script>
+  <script src="./js/UI.js"></script>
+  <script src="./js/app.js"></script>
 </body>
 
 </html>

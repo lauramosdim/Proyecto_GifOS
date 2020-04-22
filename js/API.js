@@ -1,6 +1,3 @@
-// import { log } from "winjs";
-
-// funcion asincrona-- tendencias
 class GiphyAPI {
   async GetGiphy(cantidad) {
     const apiResponse = await fetch(
@@ -33,15 +30,3 @@ class GiphyAPI {
     };
   }
 }
-
-// .then(response => {
-//   return response.json();
-// })
-// .then(data => {
-//   return data;
-// })
-// .catch(error => {
-//   return error;
-// });
-// return found;
-// }
