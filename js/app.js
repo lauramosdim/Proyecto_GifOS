@@ -97,6 +97,21 @@ function GetGifs() {
   });
 }
 
+
+
+
+function verMasBttn(palabrasug) {
+
+  let serverResponse = gif.corona(palabrasug);
+  serverResponse.then((gifsEntrantes) => {
+    ui.displaySearch(gifsEntrantes.gif.data);
+  });
+  searchTrends.innerText = `${palabrasug}(resultados)`;
+  scrollDown.scrollIntoView({
+    behavior: "smooth"
+  })
+}
+
 function GetTrends() {
   let serverResponse = gif.GetGiphy(24);
 

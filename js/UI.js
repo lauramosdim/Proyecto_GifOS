@@ -2,6 +2,7 @@ class UI {
   displaySuggestions(gif) {
     var gifsResultados = document.querySelector(".suggested-gifs");
     for (var i = 0; i < 4; i++) {
+      let palabrasug = gif[i].title.substring(0, gif[i].title.indexOf(" GIF"));
       gifsResultados.innerHTML += `<div class="suggested-container"><div class="header-gif">#${gif[
         i
       ].title
@@ -13,10 +14,15 @@ class UI {
         gif[i].images.original.url
         }" alt="${
         gif[i].title
-        }" ><button class="verMas_button" id="sugerencia1"><span>Ver más</span></button></div>`;
+        }" ><button class="verMas_button" onclick="verMasBttn('${palabrasug}');" id="sugerencia1"><span>Ver más</span></button></div>`;
+
+      console.log(palabrasug);
     }
-    // console.log(gif);
   }
+
+
+
+
 
   displayTrends(gif) {
     let resultadosTrends = document.querySelector(".trends-gifs");
@@ -31,7 +37,10 @@ class UI {
           .substring(0, gif[i].title.indexOf(" GIF"))
           .replace(/^/g, "#")
           .replace(/ /g, "#")}</div></div>`;
+
     }
+
+
     // console.log(gif);
   }
 
@@ -68,6 +77,9 @@ let input = document.querySelector("#searcher-input"),
   themeNight = "False",
   stringBuscar = document.querySelector(".searcher-input"),
   lupaBtton = document.querySelector(".search-button");
+
+
+
 
 botonDropdown.addEventListener("click", desplegarLista);
 
