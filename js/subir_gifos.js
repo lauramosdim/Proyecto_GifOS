@@ -190,7 +190,7 @@ uploadButton.addEventListener("click", async function () {
     referrerPolicy: "no-referrer",
   };
 
-  await fetch("http://upload.giphy.com/v1/gifs", requestOptions)
+  await fetch("https://upload.giphy.com/v1/gifs", requestOptions)
     .then((response) => {
       return response.json();
     })
